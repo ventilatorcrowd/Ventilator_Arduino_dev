@@ -33,7 +33,7 @@
  *   
  *                                SERVO MOTOR
  *
- *################################################################################/
+ *###############################################################################*/
 #include "Servo.h"
 
 // Define shape of driver waveform
@@ -62,13 +62,13 @@ const U16 RAW_ACTUATOR_STEP =   50;
 
 
 #else
-
+#include <TimerOne.h> 
 /*################################################################################
  *   
  *                                PWM MOTOR
  *   
- *################################################################################/
-/ Define shape of driver waveform
+ *###############################################################################*/
+/* Define shape of driver waveform */
 static const U16 inhale_drive[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,
 	                           90,95,100,105,110,115,120,125,130,135,140,145,150,
                                    155,160,165,170,175,180,185,190,195,200,217,235,252,
@@ -289,8 +289,12 @@ void  motorControl( U16 *tick , eBState *breathState )
     //     Serial.println( driveValue );
 
     }
-
+#ifdef SERVO_MOTOR
      pumpServo.write( driveValue );
+#else
+     Timer1.setPwmDuty(MOTOR_PIN, driveValue);     // PWM Output converted to 4-20mA control signal externally
+#endif
+     
    //     Serial.println( driveValue );
        
     // Second section manages the state transition
