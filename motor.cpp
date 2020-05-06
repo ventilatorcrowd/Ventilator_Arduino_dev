@@ -1,38 +1,40 @@
+/*----------------------------------------------------------------------------\
+|          Ventilator Crowd Open Source Software                              |
+|                                                                             |
+|-----------------------------------------------------------------------------|
+|                                                                             |
+|   Module Name  : Motor Control                                              |
+|                                                                             |
+|   Author Name  : Paul Hughes                                                |
+|                                                                             |
+|   Date         : 01/5/2020                                                  |
+|                                                                             |
+|-----------------------------------------------------------------------------|
+|                                                                             |
+|                                                                             |
+|-----------------------------------------------------------------------------|
+|                                                                             |
+|   Generic Motor set up and run functions                                    |
+|                                                                             |
+\----------------------------------------------------------------------------*/
+
 
 #include <Adafruit_SPITFT.h>
 #include <Adafruit_SPITFT_Macros.h>
 #include <gfxfont.h>
 #include "Controller.h"
 #include "rotor_leds.h"
-#include "Servo.h"
 #include "Display.h"
 #include "motor.h"
 
 
-
-/* Author      : Rob Collins
-   Version     : 15
-   Description : Simple ventilator controller providing a simple human interface for Respiratory Rate, I.E. Ratio and Tidal volume
-                 Ventilator control cycle runs from a timer interrupt .. enabling control parameters to be changed whilst the controler
-                 continues to provide control signals
-   Changes     : V15 : Introduces intermediate variables and a 'semaphor' between the parameter change code and the main control loop
-                       This is to enable changed parameters to only take effect at the end of a breathing cycle.
-                       Also avoid the problem of a race condition in the case where parameter variables are partially update when a control-loop interrupt occures
-                       This version uses a 'semaphor' to signal to the main control loop that parameters have been updated. This semaphor is only set whilst the
-                       interrupt timers are halted
-
-               : V16 : This version has outpur pins re-assigned to match the circuit layout defined using circutio.io
-               : V17 : Added servo control to simulate output to an actuator .. needed to use ServoTimer2.h as there is a conflict between TimerOne.h and Servo.h
-               : V18 : Throw away version
-               : V19 : Added a 'calibration' mode - when the mode switch is held down for an extended period - enters a calibration mode .. must be removed from deployed versions!
-   Circuit     : https://www.circuito.io/app?components=512,9590,9591,11021,217614,417987
-               : Also add a 10k pull-up resistor between Rotary centre switch (Middle pin, 'SELECT_BUTTON' ) and +5V .. this device has no built in pull-up for centre switch
-   Status      : Untested
-*/
-
-
-
-
+#ifdef SERVO_MOTOR
+/*################################################################################
+ *   
+ *                                SERVO MOTOR
+ *
+ *################################################################################/
+#include "Servo.h"
 
 // Define shape of driver waveform
 static const U16 inhale_drive[] = { 750, 761, 772, 783, 795, 806, 817, 828, 840, 851, 862, 873, 885, 896, 
@@ -45,9 +47,49 @@ static const U16 inhale_drive[] = { 750, 761, 772, 783, 795, 806, 817, 828, 840,
                              2087, 2100, 2112, 2125, 2137, 2150, 2162, 2175, 2187, 2200, 2212, 2225, 
                              2237, 2250};
 
+Servo  pumpServo;                // Create the servo object
 
-static const U16 DRIVE_TABLE_SIZE = 100;            // length of the INHALE_DRIVE table
 static const U16 DRIVE_VAL_MIN = 750;                 // minimum value for the output drive (position during exhale)
+
+//
+// Motor can be Stepper or servo motor
+//
+const U16 MOTOR_PIN     = 43;
+
+const U16 RAW_ACTUATOR_MIN =   700; // minimum, unscalled value direct to actuatory
+const U16 RAW_ACTUATOR_MAX =  2400; // max
+const U16 RAW_ACTUATOR_STEP =   50;
+
+
+#else
+
+/*################################################################################
+ *   
+ *                                PWM MOTOR
+ *   
+ *################################################################################/
+/ Define shape of driver waveform
+static const U16 inhale_drive[] = {0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,
+	                           90,95,100,105,110,115,120,125,130,135,140,145,150,
+                                   155,160,165,170,175,180,185,190,195,200,217,235,252,
+                                   270,287,305,322,340,357,375,392,410,427,445,462,480,497,
+                                   515,532,550,567,585,602,620,637,655,672,690,707,725,742,
+                                   760,777,795,812,830,847,865,882,900,906,912,918,924,930,936,
+                                   943,949,955,961,967,973,979,986,992,998,1004,1010,1016,1023};
+
+static const U16 DRIVE_VAL_MIN = 0;                 // minimum value for the output drive (position during exhale)
+
+const U16 MOTOR_PIN     = 43;
+
+const int RAW_ACTUATOR_MIN = 0;  // minimum, unscalled value direct to actuatory
+const int RAW_ACTUATOR_MAX = 1023; // max
+const int RAW_ACTUATOR_STEP = 20;
+
+#endif
+
+
+static const U16 DRIVE_TABLE_SIZE = sizeof( inhale_drive )/sizeof( U16 );            // length of the INHALE_DRIVE table
+
 
 // define control constants for the ventilator
 static const U16 INSP_PRESS_MAX = 20;           // Inspiratory pressure
@@ -72,7 +114,7 @@ const U16 I_E_RATIO_MIN = 20;
 const U16 I_E_RATIO_DEFAULT = 100;
 const U16 I_E_RATIO_STEP = 20;
 
-S8  INSP_MSG[] = {  "ins p" };
+S8  INSP_MSG[] = {  "Ins press" };
 S8  INSP_SET_MSG[] = { "Inspiratory Pressure" };
 S8  TIDAL_MSG[] = {  "Tidal" };
 S8  TIDAL_SET_MSG[] = {  "Tidal" };
@@ -84,40 +126,16 @@ S8  IER_MSG[] = {      "IERatio" };
 S8  IER_SET_MSG[] = {   "I.E. Ratio" };
 
 
-
-
-// control variables
-/* system data all in one array */
+/* 
+ * control variables
+ * system data all in one array 
+ */
 static S_data_value system_data[ E_MAX_DATA_VALUES ] =  
                 {   { E_INSP_PRESS, INSP_PRESS_MIN, INSP_PRESS_MAX, INSP_PRESS_DEFAULT, INSP_PRESS_STEP, INSP_MSG, INSP_SET_MSG },
                     { E_RESP_RATE, RESP_RATE_MIN, RESP_RATE_MAX, RESP_RATE_DEFAULT, RESP_RATE_STEP, RESP_MSG, RESP_SET_MSG },
                     { E_TIDAL, TIDAL_MIN, TIDAL_MAX, TIDAL_DEFAULT, TIDAL_STEP, TIDAL_MSG, TIDAL_SET_MSG },
                     { E_IE_RATIO, I_E_RATIO_MIN, I_E_RATIO_MAX, I_E_RATIO_DEFAULT, I_E_RATIO_STEP, IER_MSG, IER_SET_MSG } };
 
-
-/******************************
-typedef enum
-{
-    E_INSP_PRESS,
-    E_RESP_RATE,
-    E_TIDAL,
-    E_IE_RATIO,
-    E_MAX_DATA_VALUES,
-} E_data_values;
-
-typedef struct
-{
-    U16 rate_min;
-    U16 rate_max;
-    U16 value;
-    U16 set_value;
-    char display_msg;
-*******************************/
-
-
-const U16 RAW_ACTUATOR_MIN = 700;  // minimum, unscalled value direct to actuatory
-const U16 RAW_ACTUATOR_MAX = 2400; // max
-const U16 RAW_ACTUATOR_STEP = 50;
 
 
 const U32 ENTER_CALIBRATION = 5000;  // Length of time in milli-seconds that the select button has to be pushed to enter calibration mode
@@ -135,13 +153,6 @@ U16 inspPressure =  INSP_PRESS_DEFAULT;
 U16 respRate = INSP_PRESS_DEFAULT;
 U16 tidal = TIDAL_DEFAULT;
 U16 iERatio = I_E_RATIO_DEFAULT;
-
-
-// Physical set up constants
-const U16 SERVO_PIN     = 43;
-
-Servo  pumpServo;                // Create the servo object
-
 
 
 const U32 TICKS_PER_MINUTE = 60000000 / TIME_BETWEEN_TICKS;       // assume milli-second clock tick .. calibrate to clock speed
@@ -212,47 +223,6 @@ S8 * getSysSet_msg ( E_data_type type )
 
 
 
-/*---------------------------------------------------------------------------------
- *
- *
-
-bool upDateValue( E_data_type type )
-{
-    U16 knob_value;
-    bool retValue = false;
-
-    knob_value = getKnobIncrement( );
-
-    if ( knob_value != END_FUNCTION_CALL )
-    {
-        if ( knob_value != NOCHANGE )
-        {
-            *(system_data[ type ].value) +=  ( knob_value * system_data[ type ].set_value );
-
-            if ( *(system_data[ type ].value)  > system_data[ type ].rate_max )
-            {
-                 *(system_data[ type ].value) = system_data[ type ].rate_max; 
-            }
-            else if ( *(system_data[ type ].value)  < system_data[ type ].rate_min )
-            {
-                 *(system_data[ type ].value) = system_data[ type ].rate_min; 
-            }
-
-            DisplaySetUpValue( *(system_data[ type ].value) );
-//          lcd.print( "  " );
- //         textDisplay( 15, 2 ,system_data[ type ].display_msg, false );
-        }
-
-    }
-    else
-    {
-        retValue = true;
-    }
-
-    return retValue;
-}
- *--------------------------------------------------------------------------------*/
-
 
 
 /*---------------------------------------------------------------------------------
@@ -262,9 +232,13 @@ bool upDateValue( E_data_type type )
 void motorSetup( void )
 {
 
-    pumpServo.attach( SERVO_PIN);
     
+#ifdef SERVO_MOTOR
+    pumpServo.attach( MOTOR_PIN );
     pumpServo.write( ( (U32)DRIVE_VAL_MIN * tidal )/ TIDAL_MAX ) ;  // By default -set the controller to 'fully open'
+#else
+    Timer1.pwm( MOTOR_PIN, DRIVE_VAL_MIN); // By default -set the controller to 'fully open'
+#endif
 
     calcTicksPerCycle( );     // Update breath tick rates based on default RR and I.E.
 
