@@ -1,3 +1,25 @@
+/*----------------------------------------------------------------------------\
+|          Ventilator Crown Open Source Software                              |
+|                                                                             |
+|-----------------------------------------------------------------------------|
+|                                                                             |
+|   Module Name  : Display                                                    |
+|                                                                             |
+|   Author Name  : Paul Hughes                                                |
+|                                                                             |
+|   Date         : 01/5/2020                                                  |
+|                                                                             |
+|-----------------------------------------------------------------------------|
+|                                                                             |
+|   $Log: Display.cpp  $                                 
+|                                                                             |
+|-----------------------------------------------------------------------------|
+|                                                                             |
+|   Generic LCD Display functions                                             |
+|                                                                             |
+\----------------------------------------------------------------------------*/
+
+
 // IMPORTANT: Adafruit_TFTLCD LIBRARY MUST BE SPECIFICALLY
 // CONFIGURED FOR EITHER THE TFT SHIELD OR THE BREAKOUT BOARD.
 // SEE RELEVANT COMMENTS IN Adafruit_TFTLCD.h FOR SETUP.
