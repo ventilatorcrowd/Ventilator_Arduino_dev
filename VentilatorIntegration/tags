@@ -1,0 +1,205 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BANNER_ERR_COLOUR	./Display.cpp	64;"	d	file:
+BANNER_HEIGHT	./Display.cpp	61;"	d	file:
+BANNER_TOP_ROW	./Display.cpp	62;"	d	file:
+BANNER_WARN_COLOUR	./Display.cpp	65;"	d	file:
+BANNER_WIDTH	./Display.cpp	60;"	d	file:
+BLACK	./Display.cpp	37;"	d	file:
+BLUE	./Display.cpp	38;"	d	file:
+BUT_NO_REQUEST	./rotor_leds.cpp	/^    BUT_NO_REQUEST,$/;"	e	enum:__anon1	file:
+BUT_WAIT_FOR_PRESS	./rotor_leds.cpp	/^    BUT_WAIT_FOR_PRESS,$/;"	e	enum:__anon1	file:
+BUT_WAIT_FOR_RELEASE	./rotor_leds.cpp	/^    BUT_WAIT_FOR_RELEASE,$/;"	e	enum:__anon1	file:
+BUT_WAIT_FOR_TIMED_RELEASE	./rotor_leds.cpp	/^    BUT_WAIT_FOR_TIMED_RELEASE,$/;"	e	enum:__anon1	file:
+CYAN	./Display.cpp	41;"	d	file:
+DRIVE_TABLE_SIZE	./motor.cpp	/^static const U16 DRIVE_TABLE_SIZE = 100;            \/\/ length of the INHALE_DRIVE table$/;"	v	file:
+DRIVE_VAL_MIN	./motor.cpp	/^static const U16 DRIVE_VAL_MIN = 750;                 \/\/ minimum value for the output drive (position during exhale)$/;"	v	file:
+DisplaySetUpMsg	./Display.cpp	/^void DisplaySetUpMsg ( S8 * msg )$/;"	f
+DisplaySetUpValue	./Display.cpp	/^void DisplaySetUpValue ( U16 value )$/;"	f
+DisplayVersionNum	./Display.cpp	/^void DisplayVersionNum ( void )$/;"	f
+END_FUNCTION_CALL	./rotor_leds.h	29;"	d
+ENTER_CALIBRATION	./motor.cpp	/^const U32 ENTER_CALIBRATION = 5000;  \/\/ Length of time in milli-seconds that the select button has to be pushed to enter calibration mode$/;"	v
+EXHALE_LED	./rotor_leds.cpp	/^const U16 EXHALE_LED    = 27;             \/\/ Red LED - ( LEDR_PIN_VIN on circuito.io )$/;"	v
+E_ADJUST_RR	./Controller.h	/^    E_ADJUST_RR,$/;"	e	enum:__anon7
+E_AUDIBLE	./alarms.h	/^    E_AUDIBLE,$/;"	e	enum:__anon5
+E_BUT1	./rotor_leds.h	/^    E_BUT1,$/;"	e	enum:__anon11
+E_BUT2	./rotor_leds.h	/^    E_BUT2,$/;"	e	enum:__anon11
+E_BUT3	./rotor_leds.h	/^    E_BUT3,$/;"	e	enum:__anon11
+E_CHANGE_SETTINGS	./settings.cpp	/^    E_CHANGE_SETTINGS,$/;"	e	enum:__anon4	file:
+E_EXHALE_LEDS	./rotor_leds.h	/^    E_EXHALE_LEDS,$/;"	e	enum:__anon10
+E_EXHALE_STATE	./Controller.h	/^    E_EXHALE_STATE,$/;"	e	enum:__anon6
+E_FALSE	./rotor_leds.h	/^  E_FALSE,$/;"	e	enum:__anon12
+E_IE_RATIO	./motor.h	/^    E_IE_RATIO,$/;"	e	enum:__anon8
+E_INHALE_LEDS	./rotor_leds.h	/^    E_INHALE_LEDS,$/;"	e	enum:__anon10
+E_INHALE_STATE	./Controller.h	/^    E_INHALE_STATE,$/;"	e	enum:__anon6
+E_INIT	./settings.cpp	/^    E_INIT,$/;"	e	enum:__anon3	file:
+E_INSP_PRESS	./motor.h	/^    E_INSP_PRESS,$/;"	e	enum:__anon8
+E_LED_ERROR_FLASH	./alarms.h	/^    E_LED_ERROR_FLASH,$/;"	e	enum:__anon5
+E_LED_WARNING_FLASH	./alarms.h	/^    E_LED_WARNING_FLASH,$/;"	e	enum:__anon5
+E_MAX_BUTS	./rotor_leds.h	/^    E_MAX_BUTS,$/;"	e	enum:__anon11
+E_MAX_DATA_VALUES	./motor.h	/^    E_MAX_DATA_VALUES,$/;"	e	enum:__anon8
+E_NORMAL	./Controller.h	/^    E_NORMAL,$/;"	e	enum:__anon7
+E_NO_LEDS	./rotor_leds.h	/^    E_NO_LEDS,$/;"	e	enum:__anon10
+E_RESP_RATE	./motor.h	/^    E_RESP_RATE,$/;"	e	enum:__anon8
+E_ROT_LOCK_VALUE	./rotor_leds.cpp	/^    E_ROT_LOCK_VALUE,$/;"	e	enum:__anon2	file:
+E_ROT_NOT_PRESSED	./rotor_leds.cpp	/^    E_ROT_NOT_PRESSED,$/;"	e	enum:__anon2	file:
+E_ROT_READING_VALUE	./rotor_leds.cpp	/^    E_ROT_READING_VALUE,$/;"	e	enum:__anon2	file:
+E_ROT_UNKNOWN	./rotor_leds.cpp	/^    E_ROT_UNKNOWN,$/;"	e	enum:__anon2	file:
+E_SET_ACCEPT_VALUES	./settings.cpp	/^    E_SET_ACCEPT_VALUES,$/;"	e	enum:__anon3	file:
+E_SET_PROCESS_VALUES	./settings.cpp	/^    E_SET_PROCESS_VALUES,$/;"	e	enum:__anon3	file:
+E_SET_VALUES	./settings.cpp	/^    E_SET_VALUES,$/;"	e	enum:__anon3	file:
+E_TIDAL	./motor.h	/^    E_TIDAL,$/;"	e	enum:__anon8
+E_TRUE	./rotor_leds.h	/^  E_TRUE,$/;"	e	enum:__anon12
+E_UNKNOWN	./rotor_leds.h	/^  E_UNKNOWN,$/;"	e	enum:__anon12
+E_WAIT_FOR_PRESSED	./settings.cpp	/^    E_WAIT_FOR_PRESSED,$/;"	e	enum:__anon4	file:
+E_WAIT_TO_TRANSFER	./settings.cpp	/^    E_WAIT_TO_TRANSFER,$/;"	e	enum:__anon3	file:
+E_data_type	./motor.h	/^} E_data_type;$/;"	t	typeref:enum:__anon8
+GREEN	./Display.cpp	40;"	d	file:
+IER_MSG	./motor.cpp	/^S8  IER_MSG[] = {      "IERatio" };$/;"	v
+IER_SET_MSG	./motor.cpp	/^S8  IER_SET_MSG[] = {   "I.E. Ratio" };$/;"	v
+INHALE_LED	./rotor_leds.cpp	/^const U16 INHALE_LED    = 25;             \/\/ GReen LED - ( LEDG_PIN_VIN on circuito.io )$/;"	v
+INSP_MSG	./motor.cpp	/^S8  INSP_MSG[] = {  "ins p" };$/;"	v
+INSP_PRESS_DEFAULT	./motor.cpp	/^static const U16 INSP_PRESS_DEFAULT = 15;$/;"	v	file:
+INSP_PRESS_MAX	./motor.cpp	/^static const U16 INSP_PRESS_MAX = 20;           \/\/ Inspiratory pressure$/;"	v	file:
+INSP_PRESS_MIN	./motor.cpp	/^static const U16 INSP_PRESS_MIN = 5;$/;"	v	file:
+INSP_PRESS_STEP	./motor.cpp	/^static const U16 INSP_PRESS_STEP = 1;$/;"	v	file:
+INSP_SET_MSG	./motor.cpp	/^S8  INSP_SET_MSG[] = { "Inspiratory Pressure" };$/;"	v
+I_E_RATIO_DEFAULT	./motor.cpp	/^const U16 I_E_RATIO_DEFAULT = 100;$/;"	v
+I_E_RATIO_MAX	./motor.cpp	/^const U16 I_E_RATIO_MAX = 300;           \/\/ Inspiratory - expiratory ratio$/;"	v
+I_E_RATIO_MIN	./motor.cpp	/^const U16 I_E_RATIO_MIN = 20;$/;"	v
+I_E_RATIO_STEP	./motor.cpp	/^const U16 I_E_RATIO_STEP = 20;$/;"	v
+LCD_BORDER	./Display.cpp	53;"	d	file:
+LCD_BOTTOM_ROW	./Display.cpp	52;"	d	file:
+LCD_CD	./Display.cpp	17;"	d	file:
+LCD_CS	./Display.cpp	16;"	d	file:
+LCD_HALF_HEIGHT	./Display.cpp	50;"	d	file:
+LCD_HALF_WIDTH	./Display.cpp	48;"	d	file:
+LCD_HEIGHT	./Display.cpp	47;"	d	file:
+LCD_QUARTER_WIDTH	./Display.cpp	49;"	d	file:
+LCD_RD	./Display.cpp	19;"	d	file:
+LCD_RESET	./Display.cpp	21;"	d	file:
+LCD_TOP_ROW	./Display.cpp	51;"	d	file:
+LCD_WIDTH	./Display.cpp	46;"	d	file:
+LCD_WR	./Display.cpp	18;"	d	file:
+MAGENTA	./Display.cpp	42;"	d	file:
+MSG_LOC_UPDATE_X	./Display.cpp	81;"	d	file:
+MSG_LOC_UPDATE_Y	./Display.cpp	82;"	d	file:
+MSG_UPDATE_HIGHT	./Display.cpp	71;"	d	file:
+MSG_UPDATE_WIDTH	./Display.cpp	70;"	d	file:
+MSG_UPDATE_X	./Display.cpp	68;"	d	file:
+MSG_UPDATE_Y	./Display.cpp	69;"	d	file:
+NOCHANGE	./rotor_leds.h	30;"	d
+NUM_LOC_UPDATE_X	./Display.cpp	78;"	d	file:
+NUM_LOC_UPDATE_Y	./Display.cpp	79;"	d	file:
+NUM_UPDATE_HIGHT	./Display.cpp	76;"	d	file:
+NUM_UPDATE_WIDTH	./Display.cpp	75;"	d	file:
+NUM_UPDATE_X	./Display.cpp	73;"	d	file:
+NUM_UPDATE_Y	./Display.cpp	74;"	d	file:
+RAW_ACTUATOR_MAX	./motor.cpp	/^const U16 RAW_ACTUATOR_MAX = 2400; \/\/ max$/;"	v
+RAW_ACTUATOR_MIN	./motor.cpp	/^const U16 RAW_ACTUATOR_MIN = 700;  \/\/ minimum, unscalled value direct to actuatory$/;"	v
+RAW_ACTUATOR_STEP	./motor.cpp	/^const U16 RAW_ACTUATOR_STEP = 50;$/;"	v
+RED	./Display.cpp	39;"	d	file:
+RESP_MSG	./motor.cpp	/^S8  RESP_MSG[] = {   " resp" };$/;"	v
+RESP_RATE_DEFAULT	./motor.cpp	/^static const U16 RESP_RATE_DEFAULT = 20;$/;"	v	file:
+RESP_RATE_MAX	./motor.cpp	/^static const U16 RESP_RATE_MAX = 30;             \/\/ Respratory rate$/;"	v	file:
+RESP_RATE_MIN	./motor.cpp	/^static const U16 RESP_RATE_MIN = 10;$/;"	v	file:
+RESP_RATE_STEP	./motor.cpp	/^static const U16 RESP_RATE_STEP = 1;$/;"	v	file:
+RESP_SET_MSG	./motor.cpp	/^S8  RESP_SET_MSG[] = { "Respiratory Rate" };$/;"	v
+ROTARY_CLK	./rotor_leds.cpp	/^const U16 ROTARY_CLK    = 31;             \/\/ Connected to CLK on KY-040 ( ROTARYENCI_PIN_CLK on circuito.io )$/;"	v
+ROTARY_DT	./rotor_leds.cpp	/^const U16 ROTARY_DT     = 33;              \/\/ Connected to DT on KY-040 ( ROTARYENCI_PIN_D on circuito.io )$/;"	v
+S16	./Controller.h	/^typedef   int            S16;$/;"	t
+S32	./Controller.h	/^typedef   long           S32;$/;"	t
+S8	./Controller.h	/^typedef   char           S8;$/;"	t
+SELECT_BUTTON	./rotor_leds.cpp	/^const U16 SELECT_BUTTON = 35;          \/\/ Push switch built into the rotary encoder ( ROTARYENCI_PIN_S1 on circuito.io )$/;"	v
+SERVO_PIN	./motor.cpp	/^const U16 SERVO_PIN     = 43;$/;"	v
+S_data_value	./motor.h	/^} S_data_value;$/;"	t	typeref:struct:__anon9
+TICKS_PER_MINUTE	./motor.cpp	/^const U32 TICKS_PER_MINUTE = 60000000 \/ TIME_BETWEEN_TICKS;       \/\/ assume milli-second clock tick .. calibrate to clock speed$/;"	v
+TIDAL_DEFAULT	./motor.cpp	/^const U16 TIDAL_DEFAULT = 250;$/;"	v
+TIDAL_MAX	./motor.cpp	/^const U16 TIDAL_MAX = 300;                   \/\/ TIDAL$/;"	v
+TIDAL_MIN	./motor.cpp	/^const U16 TIDAL_MIN = 200;$/;"	v
+TIDAL_MSG	./motor.cpp	/^S8  TIDAL_MSG[] = {  "Tidal" };$/;"	v
+TIDAL_SET_MSG	./motor.cpp	/^S8  TIDAL_SET_MSG[] = {  "Tidal" };$/;"	v
+TIDAL_STEP	./motor.cpp	/^const U16 TIDAL_STEP = 10;$/;"	v
+TIME_BETWEEN_TICKS	./Controller.h	/^const U32 TIME_BETWEEN_TICKS = 10000;                   \/\/ Time between the main-control interrupt being called in microseconds$/;"	v
+U16	./Controller.h	/^typedef   unsigned int   U16;$/;"	t
+U32	./Controller.h	/^typedef   unsigned long  U32;$/;"	t
+U8	./Controller.h	/^typedef   unsigned char  U8;$/;"	t
+VERSION_NUM_MAJOR	./Controller.h	27;"	d
+VERSION_NUM_MINOR	./Controller.h	28;"	d
+WHITE	./Display.cpp	44;"	d	file:
+YELLOW	./Display.cpp	43;"	d	file:
+_ALARM_H	./alarms.h	24;"	d
+_CONTROLLER_H	./Controller.h	25;"	d
+_DISPLAY_H	./Display.h	7;"	d
+_MOTOR_H	./motor.h	26;"	d
+_ROTOR_H	./rotor_leds.h	25;"	d
+_SETUP_H	./settings.h	24;"	d
+alarm	./alarms.cpp	/^void alarm ( eAlarm_Type  alarm )$/;"	f
+alarmSetup	./alarms.cpp	/^void alarmSetup( void )$/;"	f
+blankMsgUpdateArea	./Display.cpp	/^static void blankMsgUpdateArea ( void  )$/;"	f	file:
+blankNumUpdateArea	./Display.cpp	/^static void blankNumUpdateArea ( void  )$/;"	f	file:
+buttonID	./rotor_leds.cpp	/^const U16 buttonID[ E_MAX_BUTS ] = { 53, 51, 49 };$/;"	v
+button_state	./rotor_leds.cpp	/^eButtonState button_state[ E_MAX_BUTS ] = { BUT_NO_REQUEST, BUT_NO_REQUEST, BUT_NO_REQUEST };$/;"	v
+calcTicksPerCycle	./motor.cpp	/^static void calcTicksPerCycle( void ) $/;"	f	file:
+calibrate	./motor.cpp	/^void calibrate( void ) $/;"	f
+changeSettings	./settings.cpp	/^static bool changeSettings( void ) $/;"	f	file:
+clearDisplay	./Display.cpp	/^void clearDisplay( void )$/;"	f
+data_type	./motor.h	/^    E_data_type data_type;$/;"	m	struct:__anon9
+display_msg	./motor.h	/^    S8 *display_msg;$/;"	m	struct:__anon9
+eAlarm_Type	./alarms.h	/^} eAlarm_Type;$/;"	t	typeref:enum:__anon5
+eBState	./Controller.h	/^} eBState;$/;"	t	typeref:enum:__anon6
+eButton	./rotor_leds.h	/^}  eButton;$/;"	t	typeref:enum:__anon11
+eButtonConfState	./rotor_leds.h	/^} eButtonConfState;$/;"	t	typeref:enum:__anon12
+eButtonState	./rotor_leds.cpp	/^} eButtonState;$/;"	t	typeref:enum:__anon1	file:
+eChangeSetting_state	./settings.cpp	/^} eChangeSetting_state;$/;"	t	typeref:enum:__anon3	file:
+eLedPattern	./rotor_leds.h	/^} eLedPattern;$/;"	t	typeref:enum:__anon10
+ePress_State	./settings.cpp	/^} ePress_State;$/;"	t	typeref:enum:__anon4	file:
+eRotor_state	./rotor_leds.cpp	/^} eRotor_state;$/;"	t	typeref:enum:__anon2	file:
+eRunState	./Controller.h	/^} eRunState;$/;"	t	typeref:enum:__anon7
+getButtonsConfirmation	./rotor_leds.cpp	/^eButtonConfState getButtonsConfirmation( eButton button, U16 duration )$/;"	f
+getKnobIncrement	./rotor_leds.cpp	/^U16 getKnobIncrement(  void )$/;"	f
+getSysInc	./motor.cpp	/^U16 getSysInc ( E_data_type type )$/;"	f
+getSysMax	./motor.cpp	/^U16 getSysMax ( E_data_type type )$/;"	f
+getSysMin	./motor.cpp	/^U16 getSysMin ( E_data_type type )$/;"	f
+getSysSet_msg	./motor.cpp	/^S8 * getSysSet_msg ( E_data_type type )$/;"	f
+getSysValue	./motor.cpp	/^U16 getSysValue ( E_data_type type )$/;"	f
+iERatio	./motor.cpp	/^U16 iERatio = I_E_RATIO_DEFAULT;$/;"	v
+inhale_drive	./motor.cpp	/^static const U16 inhale_drive[] = { 750, 761, 772, 783, 795, 806, 817, 828, 840, 851, 862, 873, 885, 896, $/;"	v	file:
+inspPressure	./motor.cpp	/^U16 inspPressure =  INSP_PRESS_DEFAULT;$/;"	v
+isButtonsPressed	./rotor_leds.cpp	/^bool isButtonsPressed ( eButton button )$/;"	f
+lcd	./Display.cpp	/^MCUFRIEND_kbv lcd;$/;"	v
+led_pattern_state	./rotor_leds.cpp	/^static eLedPattern  led_pattern_state; $/;"	v	file:
+modifyDateValue	./settings.cpp	/^static bool modifyDateValue( E_data_type type )$/;"	f	file:
+motorControl	./motor.cpp	/^void  motorControl( U16 *tick , eBState *breathState ) $/;"	f
+motorSetup	./motor.cpp	/^void motorSetup( void )$/;"	f
+numDisplay	./Display.cpp	/^void numDisplay( U16 x, U16 y, U16 num , bool newLine)$/;"	f
+outPutLog	./motor.cpp	/^String outPutLog = "";$/;"	v
+pinALast	./rotor_leds.cpp	/^static U16 pinALast;$/;"	v	file:
+pressState	./settings.cpp	/^static ePress_State pressState = E_WAIT_FOR_PRESSED;$/;"	v	file:
+printBreathIndicator	./Display.cpp	/^void printBreathIndicator( U16 numBlocks ) $/;"	f
+pumpServo	./motor.cpp	/^Servo  pumpServo;                \/\/ Create the servo object$/;"	v
+rate_max	./motor.h	/^    U16 rate_max;$/;"	m	struct:__anon9
+rate_min	./motor.h	/^    U16 rate_min;$/;"	m	struct:__anon9
+readRotorButton	./rotor_leds.cpp	/^U16 readRotorButton (  void )$/;"	f
+respRate	./motor.cpp	/^U16 respRate = INSP_PRESS_DEFAULT;$/;"	v
+rotorLEDSetup	./rotor_leds.cpp	/^void rotorLEDSetup( void )$/;"	f
+setPaternLeds_Inhale	./rotor_leds.cpp	/^void setPaternLeds_Inhale ( eLedPattern  pattern )$/;"	f
+setSysValue	./motor.cpp	/^void setSysValue ( E_data_type type , U16 newValue )$/;"	f
+set_value	./motor.h	/^    U16 set_value;$/;"	m	struct:__anon9
+setting_msg	./motor.h	/^    S8 *setting_msg;$/;"	m	struct:__anon9
+settingsSetup	./settings.cpp	/^void settingsSetup( void )$/;"	f
+setupDisplay	./Display.cpp	/^void setupDisplay ( void ) $/;"	f
+state	./settings.cpp	/^static eChangeSetting_state state = E_INIT;$/;"	v	file:
+system_data	./motor.cpp	/^static S_data_value system_data[ E_MAX_DATA_VALUES ] =  $/;"	v	file:
+temp_system_data	./settings.cpp	/^static U16 temp_system_data[ E_MAX_DATA_VALUES ];$/;"	v	file:
+testForChangeSettings	./settings.cpp	/^void testForChangeSettings ( void )$/;"	f
+textDisplay	./Display.cpp	/^void textDisplay( U16 x, U16 y, const S8 * string , bool newLine )$/;"	f
+ticksPerExhale	./motor.cpp	/^static U16 ticksPerExhale = 0;                    \/\/ Nmber of clock-ticks per exhale$/;"	v	file:
+ticksPerInhale	./motor.cpp	/^static U16 ticksPerInhale = 0;                    \/\/ Number of clock-ticks per inhale$/;"	v	file:
+tidal	./motor.cpp	/^U16 tidal = TIDAL_DEFAULT;$/;"	v
+updateDisplay	./Display.cpp	/^void updateDisplay()$/;"	f
+value	./motor.h	/^    U16 value;$/;"	m	struct:__anon9
